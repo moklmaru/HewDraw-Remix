@@ -127,6 +127,19 @@ pub unsafe fn flatten_uspecial(fighter: &mut L2CFighterCommon) {
     }
 }
 
+// dk rap dance smash taunt
+pub unsafe fn dk_donkey_kong(fighter: &mut L2CFighterCommon, boma: &mut BattleObjectModuleAccessor, frame: f32) {
+    if fighter.is_motion_one_of(&[Hash40::new("appeal_lw_l"),Hash40::new("appeal_lw_r")])
+    && frame == 3.0 // frame the game will check that the taunt button is no longer pressed, this value - 1 = frame window for execution
+    && ControlModule::check_button_off(boma, *CONTROL_PAD_BUTTON_APPEAL_LW) {
+        if fighter.is_motion(Hash40::new("appeal_lw_l")) {
+            MotionModule::change_motion(boma, Hash40::new("appeal_lw_l2"), 0.0, 1.0, false, 0.0, false, false);
+        } else {
+            MotionModule::change_motion(boma, Hash40::new("appeal_lw_r2"), 0.0, 1.0, false, 0.0, false, false);
+        }
+    }
+}
+
 unsafe fn fastfall_specials(fighter: &mut L2CFighterCommon) {
     if !fighter.is_in_hitlag()
     && !StatusModule::is_changing(fighter.module_accessor)
@@ -167,6 +180,7 @@ pub unsafe fn moveset(fighter: &mut L2CFighterCommon, boma: &mut BattleObjectMod
     nspecial_cancels(fighter, boma, status_kind, situation_kind);
     barrel_pull(fighter, boma, status_kind, situation_kind);
     headbutt_aerial_stall(fighter, boma, id, status_kind, situation_kind, frame);
+    dk_donkey_kong(fighter, boma, frame);
     fastfall_specials(fighter);
 }
 

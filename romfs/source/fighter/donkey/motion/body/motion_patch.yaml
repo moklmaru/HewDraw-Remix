@@ -101,3 +101,57 @@ special_air_n_cancel:
 catch_attack:
   extra:
     cancel_frame: 0
+appeal_lw_r2:
+    game_script: game_appeallwr2
+    flags:
+      turn: false
+      loop: true
+      move: false
+      fix_trans: false
+      fix_rot: false
+      fix_scale: false
+      unk_40: false
+      unk_80: true
+      unk_100: false
+      unk_200: false
+      unk_400: false
+      unk_800: false
+      unk_1000: false
+      unk_2000: false
+    blend_frames: 0
+    animations:
+      - name: j01appeallwr2.nuanmb
+        unk: 0
+    scripts: ~
+    extra:
+      xlu_start: 0
+      xlu_end: 0
+      cancel_frame: 50
+      no_stop_intp: false
+appeal_lw_l2:
+  game_script: game_appeallwl2
+  flags:
+    turn: false
+    loop: true
+    move: false
+    fix_trans: false
+    fix_rot: false
+    fix_scale: false
+    unk_40: false
+    unk_80: true
+    unk_100: false
+    unk_200: false
+    unk_400: false
+    unk_800: false
+    unk_1000: false
+    unk_2000: false
+  blend_frames: 0
+  animations:
+    - name: j01appeallwr2.nuanmb
+      unk: 0
+  scripts: ~
+  extra:
+      xlu_start: 0
+      xlu_end: 0
+      cancel_frame: 50
+      no_stop_intp: false
